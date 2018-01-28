@@ -27,6 +27,7 @@
     "reload": "^2.2.2"
   },
   "devDependencies": {
+    "connect-flash": "^0.1.1",
     "nodemon": "^1.14.11"
   },
   "engines": {

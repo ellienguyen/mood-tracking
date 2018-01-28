@@ -2,7 +2,12 @@
  * GET /
  */
 exports.index = function(req, res) {
+  if (req.user) {
+    var name = req.user.name
+  }
   res.render('home', {
-    title: 'Home'
+    messages: req.flash('message'),
+    title: 'Home',
+    name: name
   });
 };

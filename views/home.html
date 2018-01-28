@@ -1,93 +1,77 @@
 {% extends 'layout.html' %} {% block body %}
 <div class="container-fluid">
-    {% if messages.success %}
-    <div role="alert" class="alert alert-success">
-        {% for success in messages.success %}
-        <div>{{ success.msg }}</div>
-        {% endfor %}
-    </div>
-    {% endif %} {% if messages.error %}
-    <div role="alert" class="alert alert-danger">
-        {% for error in messages.error %}
-        <div>{{ error.msg }}</div>
-        {% endfor %}
-    </div>
-    {% endif %} {% if messages.info %}
-    <div role="alert" class="alert alert-info">
-        {% for info in messages.info %}
-        <div>{{ info.msg }}</div>
-        {% endfor %}
-    </div>
-    {% endif %}
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <h1>Hi</h1>
+                {% if name %}
+                <h1>Hi {{ name }}</h1>
+                {% endif %}
             </div>
         </div>
     </div>
     <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h1>How are you feeling today?</h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2">
-                <p>
-                    Happy, Smitten, Triumph, Delighted, Euphoria
-                </p>
-            </div>
-            <div class="col-md-2">
-                <p>
-                    Happy, Smitten, Triumph, Delighted, Euphoria
-                </p>
-            </div>
-            <div class="col-md-2">
-                <p>
-                    Apathetic, Okay, Bored, Indescribable, Tense, content
-                </p>
-            </div>
-            <div class="col-md-2">
-                <p>
-                    Apathetic, Okay, Bored, Indescribable, Tense, content
-                </p>
-            </div>
-            <div class="col-md-2">
-                <p>
-                    Stressed, Angry, Jealous, Inadequate, Hurt
-                </p>
-            </div>
-            <div class="col-md-2">
-                <p>
-                    Stressed, Angry, Jealous, Inadequate, Hurt
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <form method="POST" action = "/submit">
-                <legend>What would you call this feeling?</legend>
-                <div class="form-group">
-                    <input type="description" name="description" id="description" placeholder="Distressed" class="form-control" autofocus>
+        <form method="POST" action = "/submit">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h1>How are you feeling today?</h1>
                 </div>
-                <legend>How come you feel that way?</legend>
-                <div class="form-group">
-                    <input type="reason" name="reason" id="reason" placeholder="Bad grades" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-success">Submit</button>
-            </form>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h1>
-                Our advice to you
-              </h1>
             </div>
-        </div>
+            <div class="row">
+                <div class="col-md-2 col-md-offset-2">
+                    <img src="https://lh3.google.com/u/0/d/1TfknbC39AjTgjdd8qUdbxjMfINxr17Zp=w3840-h2252-iv1" class="img-responsive" alt="Responsive image">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="level" id="bad" value="1" checked>
+                            bad
+                        </label>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="level" id="notwell" value="2">
+                            not well
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <img src="https://lh3.google.com/u/0/d/1y4cEWJCcrqCH2YGlAtTI5Lkl6bIksBt7=w3840-h2252-iv1" class="img-responsive" alt="Responsive image">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="level" id="okay" value="3">
+                            okay
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="level" id="good" value="4">
+                            good
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <img src="https://lh3.google.com/u/0/d/16RXksAhlv9f_aUdhcIODIG6yqsqBUeL8=w3840-h2252-iv1" class="img-responsive" alt="Responsive image">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="level" id="great" value="5">
+                            great!
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <legend>What would you call this feeling?</legend>
+            <div class="form-group">
+                <input type="description" name="description" id="description" placeholder="Distressed" class="form-control" autofocus>
+            </div>
+            <legend>How come you feel that way?</legend>
+            <div class="form-group">
+                <input type="reason" name="reason" id="reason" placeholder="Bad grades" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
     </div>
 </div>
 {% endblock %}

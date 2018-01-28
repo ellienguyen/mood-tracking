@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="container">
+  <h1>History</h1>
+  {% if feeling %}
+  <div role="alert" class="alert alert-success">
+    {% for feel in feeling %}
+    <p class="lead">{{ feel.reason }}</p>
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

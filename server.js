@@ -26,7 +26,6 @@ require('./config/passport');
 
 var app = express();
 
-
 // mongoose.connect(process.env.MONGODB);
 mongoose.connect('mongodb://ellie:1234@ds117758.mlab.com:17758/mood-tracker');
 mongoose.connection.on('error', function() {
@@ -38,6 +37,8 @@ nunjucks.configure('views', {
   autoescape: true,
   express: app
 });
+
+
 app.set('view engine', 'html');
 app.set('port', process.env.PORT || 3000);
 app.use(compression());
@@ -54,6 +55,7 @@ app.use(function(req, res, next) {
   res.locals.user = req.user;
   next();
 });
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', HomeController.index);
@@ -72,8 +74,11 @@ app.get('/reset/:token', userController.resetGet);
 app.post('/reset/:token', userController.resetPost);
 app.get('/logout', userController.logout);
 app.get('/unlink/:provider', userController.ensureAuthenticated, userController.unlink);
-app.get('/submit', feelingController.trackPut);
-app.post('/submit', feelingController.trackPut);
+app.get('/submit', feelingController.feelingPut);
+app.post('/submit', feelingController.feelingPut);
+app.get('/history', feelingController.history);
+app.get('/advice', feelingController.advice);
+
 
 // Production error handler
 if (app.get('env') === 'production') {
