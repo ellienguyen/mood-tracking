@@ -1,62 +1,93 @@
-{% extends 'layout.html' %}
-
-{% block body %}
+{% extends 'layout.html' %} {% block body %}
 <div class="container-fluid">
-  {% if messages.success %}
-  <div role="alert" class="alert alert-success">
-    {% for success in messages.success %}
-    <div>{{ success.msg }}</div>
-    {% endfor %}
-  </div>
-  {% endif %}
-  {% if messages.error %}
-  <div role="alert" class="alert alert-danger">
-    {% for error in messages.error %}
-    <div>{{ error.msg }}</div>
-    {% endfor %}
-  </div>
-  {% endif %}
-  {% if messages.info %}
-  <div role="alert" class="alert alert-info">
-    {% for info in messages.info %}
-    <div>{{ info.msg }}</div>
-    {% endfor %}
-  </div>
-  {% endif %}
-  <div class="row">
-    <div class="col-sm-4">
-      <div class="panel">
-        <div class="panel-body">
-          <h3>Heading</h3>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-            condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod.
-            Donec sed odio dui.</p>
-          <a href="#" role="button" class="btn btn-default">View details</a>
-        </div>
-      </div>
+    {% if messages.success %}
+    <div role="alert" class="alert alert-success">
+        {% for success in messages.success %}
+        <div>{{ success.msg }}</div>
+        {% endfor %}
     </div>
-    <div class="col-sm-4">
-      <div class="panel">
-        <div class="panel-body">
-          <h3>Heading</h3>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-            condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod.
-            Donec sed odio dui.</p>
-          <a href="#" role="button" class="btn btn-default">View details</a>
-        </div>
-      </div>
+    {% endif %} {% if messages.error %}
+    <div role="alert" class="alert alert-danger">
+        {% for error in messages.error %}
+        <div>{{ error.msg }}</div>
+        {% endfor %}
     </div>
-    <div class="col-sm-4">
-      <div class="panel">
-        <div class="panel-body">
-          <h3>Heading</h3>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-            condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod.
-            Donec sed odio dui.</p>
-          <a href="#" role="button" class="btn btn-default">View details</a>
-        </div>
-      </div>
+    {% endif %} {% if messages.info %}
+    <div role="alert" class="alert alert-info">
+        {% for info in messages.info %}
+        <div>{{ info.msg }}</div>
+        {% endfor %}
     </div>
-  </div>
+    {% endif %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h1>Hi</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h1>How are you feeling today?</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <p>
+                    Happy, Smitten, Triumph, Delighted, Euphoria
+                </p>
+            </div>
+            <div class="col-md-2">
+                <p>
+                    Happy, Smitten, Triumph, Delighted, Euphoria
+                </p>
+            </div>
+            <div class="col-md-2">
+                <p>
+                    Apathetic, Okay, Bored, Indescribable, Tense, content
+                </p>
+            </div>
+            <div class="col-md-2">
+                <p>
+                    Apathetic, Okay, Bored, Indescribable, Tense, content
+                </p>
+            </div>
+            <div class="col-md-2">
+                <p>
+                    Stressed, Angry, Jealous, Inadequate, Hurt
+                </p>
+            </div>
+            <div class="col-md-2">
+                <p>
+                    Stressed, Angry, Jealous, Inadequate, Hurt
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <form method="POST" action = "/submit">
+                <legend>What would you call this feeling?</legend>
+                <div class="form-group">
+                    <input type="description" name="description" id="description" placeholder="Distressed" class="form-control" autofocus>
+                </div>
+                <legend>How come you feel that way?</legend>
+                <div class="form-group">
+                    <input type="reason" name="reason" id="reason" placeholder="Bad grades" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h1>
+                Our advice to you
+              </h1>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
