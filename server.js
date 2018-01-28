@@ -26,7 +26,8 @@ require('./config/passport');
 var app = express();
 
 
-mongoose.connect(process.env.MONGODB);
+// mongoose.connect(process.env.MONGODB);
+mongoose.connect('mongodb://ellie:1234@ds117758.mlab.com:17758/mood-tracker');
 mongoose.connection.on('error', function() {
   console.log('MongoDB Connection Error. Please make sure that MongoDB is running.');
   process.exit(1);
